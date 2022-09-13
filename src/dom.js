@@ -24,6 +24,7 @@ dom.wrap = function (node, parent) {
     dom.append(parent, node);
 }
 
+
 // 删除指定节点
 dom.remove = function (node) {
     node.parentNode.removeChild(node)
@@ -31,11 +32,11 @@ dom.remove = function (node) {
 }
 // 清空指点节点的所有子节点
 dom.empty = function (node) {
-    const { childNodes } = node;
     const array = [];
-    for (let i = 0; i < childNodes.length; i++) {
-        array.push(childNodes[i])
-        node.remove(childNodes[isFinite])
+    let x = node.firstChild
+    while (x) {
+        array.push(dom.remove(node.firstChild))
+        x = node.firstChild
     }
     return array
 }

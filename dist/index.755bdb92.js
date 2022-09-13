@@ -29,11 +29,11 @@ dom.remove = function(node) {
 };
 // 清空指点节点的所有子节点
 dom.empty = function(node) {
-    const { childNodes  } = node;
     const array = [];
-    for(let i = 0; i < childNodes.length; i++){
-        array.push(childNodes[i]);
-        node.remove(childNodes[isFinite]);
+    let x = node.firstChild;
+    while(x){
+        array.push(dom.remove(node.firstChild));
+        x = node.firstChild;
     }
     return array;
 };
