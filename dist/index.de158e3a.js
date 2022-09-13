@@ -1,4 +1,4 @@
-// 测试
+// 测试代码
 // create 测试
 const div = dom.create("<div><span>1<span></div>");
 console.log(div);

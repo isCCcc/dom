@@ -1,4 +1,6 @@
-// 测试
+// 测试代码
+
+
 // create 测试
 const div = dom.create('<div><span>1<span></div>')
 console.log(div)
@@ -8,14 +10,16 @@ dom.before(node, dom.create('<div>newNode-before</div>'))
 dom.after(node, dom.create('<div>newNode-after</div>'))
 // wrap 测试
 dom.wrap(nodeparent, dom.create('<div id="new-parent"></div>'))
+
+
 // empty 测试
 const empty = dom.empty(window.nodeempty)
 console.log(empty)
+
+
 // attr 测试
 const title = dom.attr(window.nodetitle, 'title', 'blanchecc')
 console.log(`title:${dom.attr(window.nodetitle, 'title')}`)
-
-
 // text 测试
 const readme = window.readme;
 console.log(dom.text(readme))

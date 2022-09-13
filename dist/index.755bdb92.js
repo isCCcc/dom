@@ -129,7 +129,7 @@ window.dom = {
         try {
             list = dom.children(node.parentNode);
         } catch  {
-            return console.log("查无此节点");
+            return null;
         }
         for(let i = 0; i < list.length; i++){
             if (list[i] === node) return i;
