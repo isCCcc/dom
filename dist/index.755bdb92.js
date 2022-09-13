@@ -22,5 +22,20 @@ dom.wrap = function(node, parent) {
     dom.before(node, parent);
     dom.append(parent, node);
 };
+// 删除指定节点
+dom.remove = function(node) {
+    node.parentNode.removeChild(node);
+    return node;
+};
+// 清空指点节点的所有子节点
+dom.empty = function(node) {
+    const { childNodes  } = node;
+    const array = [];
+    for(let i = 0; i < childNodes.length; i++){
+        array.push(childNodes[i]);
+        node.remove(childNodes[isFinite]);
+    }
+    return array;
+};
 
 //# sourceMappingURL=index.755bdb92.js.map
