@@ -89,6 +89,51 @@ window.dom = {
     // 用于删除事件监听
     off (node, eventName, fn) {
         node.removeEventListener(eventName, fn);
+    },
+    // 获取标签数组
+    find (selector, scope) {
+        return (scope || document).querySelectorAll(selector);
+    },
+    // 获取父节点
+    parent (node) {
+        return node.parentNode;
+    },
+    // 获取子节点
+    children (node) {
+        return node.children;
+    },
+    // 获取兄弟姐妹节点
+    siblings (node) {
+        return Array.from(node.parentNode.children).filter((n)=>n !== node);
+    },
+    // 获取哥哥节点
+    previous (node) {
+        let flag = node.previousSibling;
+        while(flag && flag.nodeType === 3)flag = flag.previousSibling;
+        return flag;
+    },
+    // 获取弟弟节点
+    next (node) {
+        let flag = node.nextSibling;
+        while(flag && flag.nodeType === 3)flag = flag.nextSibling;
+        return flag;
+    },
+    // 遍历节点
+    each (nodes, fn) {
+        console.log("===");
+        for(let i = 0; i < nodes.length; i++)fn.call(undefined, fn(nodes[i]));
+    },
+    // 获取节点的排位
+    index (node) {
+        let list;
+        try {
+            list = dom.children(node.parentNode);
+        } catch  {
+            return console.log("查无此节点");
+        }
+        for(let i = 0; i < list.length; i++){
+            if (list[i] === node) return i;
+        }
     }
 };
 
